@@ -473,6 +473,17 @@
     padding:10px 14px; border-radius:8px; margin-top:16px;
   }
   @media(max-width:350px){ .hero h1{font-size:19px;} .head h2{font-size:18px;} .eyebrow{font-size:11.5px; padding:5px 12px; letter-spacing:.04em;} }
+  /* そのほかのサービス（関連ページへのリンク） */
+  .svc-links{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  @media(max-width:760px){ .svc-links{grid-template-columns:1fr;} }
+  .svc-card{display:block; background:var(--white); border:1px solid var(--line); border-radius:12px; padding:22px 20px; text-decoration:none; color:inherit; transition:border-color .2s, box-shadow .2s;}
+  .svc-card:hover{border-color:var(--accent); box-shadow:0 8px 20px rgba(40,32,10,.08);}
+  .svc-card .kw{font-size:12px; color:var(--accent-dark); font-weight:700; margin-bottom:6px;}
+  .svc-card h3{font-size:16px; margin:0 0 8px; color:var(--ink);}
+  .svc-card p{font-size:13.5px; line-height:1.8; color:var(--ink-soft); margin:0 0 12px;}
+  .svc-card .more{font-size:13px; font-weight:700; color:var(--accent-dark);}
+  .svc-block{margin-top:36px;}
+  .svc-title{text-align:center; font-weight:700; font-size:15px; margin-bottom:16px; color:var(--ink);}
 </style>
 </head>
 <body>
@@ -757,6 +768,35 @@
   </div>
 </section>
 
+<section class="section" id="services" style="border-top:1px solid var(--line);">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">そのほかのサービス</span>
+      <h2><span class="nb">片付けとあわせて、</span><span class="nb">ご相談いただけます</span></h2>
+    </div>
+    <div class="svc-links">
+      <a class="svc-card" href="https://ihin.kokonoha.jp/">
+        <p class="kw">遺品整理</p>
+        <h3>ご家族の遺品整理</h3>
+        <p><span class="nb">貴重品の捜索や形見分け、</span><span class="nb">遠方のご家族への発送まで。</span><span class="nb">立ち会いなしでも対応します。</span></p>
+        <span class="more">遺品整理のページへ →</span>
+      </a>
+      <a class="svc-card" href="/kusakari/">
+        <p class="kw">草刈り・庭木</p>
+        <h3>空き家・実家の草刈り</h3>
+        <p><span class="nb">草刈り、庭木の剪定・伐採、</span><span class="nb">刈った草の処分まで。</span><span class="nb">定期管理は毎回10%OFFです。</span></p>
+        <span class="more">草刈りのページへ →</span>
+      </a>
+      <a class="svc-card" href="/ohaka/">
+        <p class="kw">お墓の管理</p>
+        <h3>お墓の掃除・管理</h3>
+        <p><span class="nb">墓石の掃除や草刈り、</span><span class="nb">除草まで。</span><span class="nb">作業後は写真でご報告します。</span><span class="nb">年間プランもあります。</span></p>
+        <span class="more">お墓の管理のページへ →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <section class="section section-alt" id="faq">
   <div class="wrap">
     <div class="head">
@@ -778,6 +818,10 @@
     <details class="faq-item">
       <summary>女性スタッフに対応してもらうことはできますか？</summary>
       <div class="a">はい、女性スタッフが在籍しております。男性が苦手な方、ご高齢の女性のお客様も、できる限りご希望に沿って対応いたします。</div>
+    </details>
+    <details class="faq-item">
+      <summary>遺品整理もお願いできますか？</summary>
+      <div class="a">はい、遺品整理も承っております。貴重品の捜索や形見分け、遠方のご家族への発送までお手伝いします。遠方にお住まいの方は、鍵をお預かりして立ち会いなしで作業することも可能です。<br><a href="https://ihin.kokonoha.jp/" style="color:var(--accent-dark); font-weight:700;">遺品整理について詳しく見る →</a></div>
     </details>
     <details class="faq-item">
       <summary>空き家の片付けに補助金は使えますか？</summary>
@@ -968,7 +1012,7 @@
   <p>代表理事　矢嶋 隼也｜〒679-0105 兵庫県加西市朝妻町1013-1｜TEL：070-8581-6921</p>
   <p style="margin-top:6px;">古物商許可：兵庫県公安委員会 第631532500010号</p>
   <p style="margin-top:6px;">対応エリア：加西市・三木市・小野市・西脇市・加東市・多可町・宍粟市・市川町・神河町・福崎町</p>
-  <p style="margin-top:6px;"><a href='https://ihin.kokonoha.jp/' style='color:inherit;'>遺品整理のご案内</a>｜<a href='/hojokin/' style='color:inherit;'>加西市の空き家補助金</a>｜<a href='/hojokin/kato/' style='color:inherit;'>加東市の空き家補助金</a>｜<a href='/privacy' style='color:inherit;'>プライバシーポリシー</a>｜© 一般社団法人ここのは</p>
+  <p style="margin-top:6px;"><a href='https://ihin.kokonoha.jp/' style='color:inherit;'>遺品整理のご案内</a>｜<a href='/kusakari/' style='color:inherit;'>草刈り・庭木の手入れ</a>｜<a href='/ohaka/' style='color:inherit;'>お墓の掃除・管理</a>｜<a href='/hojokin/' style='color:inherit;'>加西市の空き家補助金</a>｜<a href='/hojokin/kato/' style='color:inherit;'>加東市の空き家補助金</a>｜<a href='/privacy' style='color:inherit;'>プライバシーポリシー</a>｜© 一般社団法人ここのは</p>
 </footer>
 
 <div class="float-bar">
