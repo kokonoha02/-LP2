@@ -484,7 +484,13 @@
   .svc-card .more{font-size:13px; font-weight:700; color:var(--accent-dark);}
   .svc-block{margin-top:36px;}
   .svc-title{text-align:center; font-weight:700; font-size:15px; margin-bottom:16px; color:var(--ink);}
-</style>
+  /* ファーストビュー：LINEを主役に、電話・フォームは小さく */
+  .btn-hero-line{padding:16px 28px; font-size:16px; min-width:300px;}
+  @media(max-width:480px){ .btn-hero-line{width:100%; min-width:0; padding:16px 12px;} }
+  .hero-line-note{font-size:12.5px; line-height:1.7; color:var(--ink-soft); margin:-12px 0 14px;}
+  .hero-ctas-small{display:flex; flex-wrap:wrap; gap:10px; margin:0 0 18px;}
+  .hero-ctas-small .btn{padding:8px 14px; font-size:13px; background:var(--white); border:1px solid var(--line); color:var(--ink);}
+  .hero-ctas-small .btn:hover{border-color:var(--accent); color:var(--accent-dark);}</style>
 <!-- Microsoft Clarity（スクロール・クリックの分析） -->
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
@@ -526,13 +532,13 @@
         <span class="nb"><strong>押入れ1つ・1部屋からでも</strong></span><span class="nb">お気軽にご相談ください。</span>
       </p>
       <div class="hero-ctas">
-        <a href="tel:07085816921" onclick="return gtagReportCallConversion(this.href);" class="btn btn-primary">📞 今すぐ電話で相談</a>
+        <a href="https://lin.ee/auAzwZU" target="_blank" rel="noopener" onclick="gtagReportLineConversion();" class="btn btn-line btn-hero-line">💬 LINEで相談・写真でお見積り</a>
       </div>
-      <div class="hero-ctas-sub">
-        <a href="https://lin.ee/auAzwZU" target="_blank" rel="noopener" onclick="gtagReportLineConversion();">💬 LINEで連絡</a>
-        <a href="#form">✎ フォームで相談</a>
-      </div>
-      <div class="hero-note">
+      <p class="hero-line-note">友だち追加だけでもOK。写真を送るだけで、おおよその金額をお伝えします。</p>
+      <div class="hero-ctas-small">
+        <a href="tel:07085816921" onclick="return gtagReportCallConversion(this.href);" class="btn">📞 電話で相談</a>
+        <a href="#form" class="btn">✎ フォームで相談</a>
+      </div>      <div class="hero-note">
         <span>お見積り・出張費無料</span>
         <span>少量・1部屋からOK</span>
         <span>女性スタッフ在籍</span>
