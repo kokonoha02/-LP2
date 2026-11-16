@@ -510,7 +510,43 @@
   .hero-points li{position:relative; padding-left:28px; font-size:14.5px; line-height:1.7; color:var(--ink);}
   .hero-points li::before{content:"✓"; position:absolute; left:0; top:0; width:20px; height:20px; border-radius:50%; background:#F0D9A8; color:var(--accent-dark); font-size:12px; font-weight:700; display:flex; align-items:center; justify-content:center; margin-top:2px;}
   .hero-ctas-sub{margin-bottom:16px;}
-</style>
+  /* 印刷（A4）用：画面の表示には影響しない */
+  @media print{
+    @page{size:A4; margin:12mm 10mm;}
+    html,body{background:#fff !important; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+    body{padding-bottom:0 !important; font-size:12px;}
+    header.site{position:static !important; box-shadow:none !important;}
+    .float-bar,.cursor,.scroll-ind{display:none !important;}
+    .reveal,.ph.mask{opacity:1 !important; transform:none !important; clip-path:none !important;}
+    *{animation:none !important; transition:none !important;}
+    .section{padding:20px 0 !important;}
+    h1,h2,h3,.head,.sec-head,.case-title{break-after:avoid; page-break-after:avoid;}
+    p,li,tr{orphans:3; widows:3;}
+    img,figure,table,tr,.case-study,.case-photos,.reason,.problem-card,.voice-card,.flow-step,.faq-item,.svc-card,.item-card,.buy-card,.judge-card,.contact-card,.example,.notice,.point-card,.achievement-card,.cta-box,.form-card,.price-note,.reason-list li,.doc-box > div,table.info tr,table.price tr{break-inside:avoid; page-break-inside:avoid;}
+    .hero .wrap,.case-study,.founder,.pr-layout{display:block !important;}
+    .achievement-card,.point-card{max-width:110mm; margin:12px auto 0;}
+    .achievement-photo .photo-frame{max-width:60mm;}
+    .voice-grid{display:grid !important; grid-template-columns:1fr 1fr !important; overflow:visible !important; margin:0 !important; padding:0 !important;}
+    .voice-grid > .voice-card{flex:none !important;}
+    .voice-count{display:none !important;}
+    .case-photos{max-width:150mm;}
+    details.faq-item > div.a{display:block !important;}
+    a[href]{text-decoration:none;}
+    /* 見出しと中身が別のページに分かれないように */
+    .head,.sec-head,.svc-title{break-inside:avoid; page-break-inside:avoid; break-after:avoid; page-break-after:avoid;}
+    .eyebrow{break-after:avoid; page-break-after:avoid;}
+    .head + *,.svc-title + *{break-before:avoid; page-break-before:avoid;}
+    .pr-photo,.case-photo,.photo-frame,.voice-photo,.founder-photo,picture{break-inside:avoid; page-break-inside:avoid;}
+    .pr-photo{min-height:0 !important; height:55mm !important; max-width:150mm; margin:0 auto;}
+    .case-photo{aspect-ratio:auto !important; height:48mm;}
+    .case-photo[style*="grid-column"]{height:40mm;}
+    .buy-card img{aspect-ratio:auto; height:45mm;}
+    /* 紙では記入できないフォームは印刷しない（電話・LINEの案内は残す） */
+    .form-section{display:none !important;}
+    .voice-grid{grid-template-columns:repeat(3,1fr) !important; gap:10px !important;}
+    .voice-photo{aspect-ratio:auto !important; height:30mm;}
+    footer{break-inside:avoid; page-break-inside:avoid; padding-bottom:0 !important;}
+  }</style>
 <!-- Microsoft Clarity（スクロール・クリックの分析） -->
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
@@ -784,5 +820,10 @@
   <a href="/#form" class="fb-form">✎ 無料見積り</a>
 </div>
 
+<script>
+  // 印刷するとき、よくある質問をすべて開く
+  window.addEventListener('beforeprint', function(){ document.querySelectorAll('details').forEach(function(d){ d.setAttribute('data-was-open', d.open ? '1' : '0'); d.open = true; }); document.querySelectorAll('img[loading="lazy"]').forEach(function(i){ i.loading = 'eager'; }); });
+  window.addEventListener('afterprint', function(){ document.querySelectorAll('details').forEach(function(d){ if (d.getAttribute('data-was-open') === '0') d.open = false; }); });
+</script>
 </body>
 </html>
