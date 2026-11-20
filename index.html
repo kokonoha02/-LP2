@@ -490,7 +490,29 @@
   .hero-line-note{font-size:12.5px; line-height:1.7; color:var(--ink-soft); margin:-12px 0 14px;}
   .hero-ctas-small{display:flex; flex-wrap:wrap; gap:10px; margin:0 0 18px;}
   .hero-ctas-small .btn{padding:8px 14px; font-size:13px; background:var(--white); border:1px solid var(--line); color:var(--ink);}
-  .hero-ctas-small .btn:hover{border-color:var(--accent); color:var(--accent-dark);}  /* 印刷（A4）用：画面の表示には影響しない */
+  .hero-ctas-small .btn:hover{border-color:var(--accent); color:var(--accent-dark);}  /* 料金表の下の相談枠 */
+  .price-cta{margin-top:22px; background:var(--white); border:2px solid #06C755; border-radius:14px; padding:22px 18px; text-align:center;}
+  .price-cta .pc-lead{font-family:"Shippori Mincho",serif; font-size:19px; font-weight:700; color:var(--ink); margin-bottom:6px;}
+  .price-cta .pc-text{font-size:13.5px; line-height:1.8; color:var(--ink-soft); margin-bottom:14px;}
+  .price-cta .btn-line{padding:15px 22px; font-size:15px; width:100%; max-width:360px;}
+  .price-cta .pc-sub{margin-top:12px; font-size:13px;}
+  .price-cta .pc-sub a{color:var(--ink-soft); font-weight:700; text-decoration:underline;}
+  /* 小さいスマホで料金表の1列目が細くなりすぎないように */
+  @media(max-width:380px){
+    table.price th, table.price td{padding:12px 6px;}
+    table.price th:first-child, table.price td:first-child{min-width:8.6em; font-size:12.5px;}
+    table.price td:last-child{font-size:13px;}
+    table.price td:nth-child(2), table.price th:nth-child(2){white-space:normal !important; font-size:12px;}
+    .float-bar a{font-size:12.5px; padding:14px 4px; gap:4px; white-space:nowrap;}
+  }
+  /* 大きな事例は折りたたむ */
+  .more-cases{margin-top:20px;}
+  .more-cases > summary{list-style:none; cursor:pointer; text-align:center; font-weight:700; font-size:14px; color:var(--accent-dark); background:var(--white); border:1px solid var(--line); border-radius:999px; padding:12px 18px; max-width:420px; margin:0 auto;}
+  .more-cases > summary::-webkit-details-marker{display:none;}
+  .more-cases > summary::after{content:" ＋";}
+  .more-cases[open] > summary::after{content:" －";}
+  .more-cases[open] > summary{margin-bottom:20px;}
+  /* 印刷（A4）用：画面の表示には影響しない */
   @media print{
     @page{size:A4; margin:12mm 10mm;}
     html,body{background:#fff !important; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
@@ -694,6 +716,8 @@
         <p class="case-point">お客様の声：「自分たちでは絶対できなかったので、とても助かりました。お値段も良心的で満足しています。」<br>1部屋分や、重くて運べない物だけのご依頼も承ります。</p>
       </div>
     </div>
+    <details class="more-cases">
+      <summary>家一軒・倉庫など、大きな片付けの事例を見る</summary>
     <div class="case-study">
       <div class="case-photos">
         <div class="case-photo">
@@ -748,6 +772,7 @@
         <p class="case-point">お打ち合わせで、ゴミの処分はお客様ご自身で行うことに。処分費用を大幅に抑えられました。ご予算やご事情に合わせて、作業の範囲は柔軟にご相談いただけます。</p>
       </div>
     </div>
+    </details>
   </div>
 </section>
 
@@ -758,14 +783,18 @@
       <h2><span class="nb">空き家・お部屋の</span><span class="nb">広さでわかる、</span><br><span class="nb">片付け費用の目安</span></h2>
     </div>
     <table class="price">
-      <tr><th>間取り・広さの目安</th><th>作業時間目安</th><th><span class="nb">料金目安</span><br><span class="nb">（税込）</span></th></tr>
-      <tr><td><span class="nb">押入れ・物置・1R半分</span></td><td>1〜2時間</td><td>25,000円〜</td></tr>
+      <tr><th>広さの目安</th><th>作業時間目安</th><th><span class="nb">料金目安</span><br><span class="nb">（税込）</span></th></tr>
+      <tr><td>押入れ・物置・<br>1R半分</td><td>1〜2時間</td><td>25,000円〜</td></tr>
       <tr><td>1K・1DK程度</td><td>2〜4時間</td><td>45,000円〜</td></tr>
-      <tr><td>1DK・1LDK程度</td><td>3〜6時間</td><td>80,000円〜</td></tr>
-      <tr><td>1LDK・2LDK程度</td><td>4〜8時間</td><td><span class="nb">120,000円〜</span></td></tr>
-      <tr><td><span class="nb">空き家まるごと</span><br><span class="nb">戸建て一軒</span></td><td><span class="nb">1日〜</span><span class="nb">複数日</span></td><td><span class="nb">要現地見積り</span></td></tr>
+      <tr><td>広いお部屋・<br>家一軒まるごと</td><td><span class="nb">物の量に</span><span class="nb">応じて</span></td><td><span class="nb">現地で</span><span class="nb">お見積り</span></td></tr>
     </table>
-    <p class="price-note">撤去だけでなく、簡易清掃もセットで対応します。草刈りや除草、エアコン撤去などの暮らしのお困りごとも、お気軽にご相談ください（内容によっては別途お見積りが必要な場合があります）。</p>
+    <p class="price-note">撤去だけでなく、簡易清掃もセットで対応します。売れる物は買い取って、費用から差し引きます。草刈りや除草、エアコン撤去などの暮らしのお困りごとも、お気軽にご相談ください（内容によっては別途お見積りが必要な場合があります）。</p>
+    <div class="price-cta">
+      <p class="pc-lead"><span class="nb">うちの場合はいくら？</span></p>
+      <p class="pc-text"><span class="nb">LINEで写真を送っていただくだけで、</span><span class="nb">おおよその金額をお伝えします。</span><br><span class="nb">お見積り・出張費は無料。</span><span class="nb">お見積り後のお断りも大丈夫です。</span></p>
+      <a href="https://lin.ee/auAzwZU" target="_blank" rel="noopener" onclick="gtagReportLineConversion();" class="btn btn-line">💬 LINEで写真を送って見積り</a>
+      <p class="pc-sub"><a href="tel:07085816921" onclick="return gtagReportCallConversion(this.href);">📞 電話で相談する</a>　<a href="#form">✎ フォームで相談する</a></p>
+    </div>
   </div>
 </section>
 
