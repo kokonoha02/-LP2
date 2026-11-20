@@ -86,7 +86,9 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet"></noscript>
 <style>
   :root{
     --bg:#F6F1E3;
@@ -644,7 +646,7 @@
       <div class="achievement-card">
         <div class="achievement-photo">
           <div class="photo-frame">
-            <img src="/images/img14.webp" alt="代表理事 矢嶋隼也">
+            <img src="/images/img14.webp" alt="代表理事 矢嶋隼也" fetchpriority="high">
             <p class="achievement-caption"><span class="nb">代表理事</span><br><span class="nb">矢嶋　隼也</span></p>
           </div>
         </div>

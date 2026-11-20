@@ -97,7 +97,9 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet"></noscript>
 <style>
   :root{
     --bg:#F6F1E3;
@@ -519,7 +521,12 @@
   .more-cases > summary::after{content:" ＋";}
   .more-cases[open] > summary::after{content:" －";}
   .more-cases[open] > summary{margin-bottom:20px;}
-  /* スマホの折り返し：1文字だけ次の行に残らないように、日本語は文節で折り返す */
+  /* 離れて暮らす方向け */
+  .away-steps{list-style:none; counter-reset:st; display:grid; gap:12px; max-width:760px; margin:0 auto; padding:0;}
+  .away-steps li{counter-increment:st; background:var(--white); border:1px solid var(--line); border-radius:4px; padding:16px 18px 16px 56px; position:relative; font-size:14.5px; line-height:1.8; color:var(--ink-soft);}
+  .away-steps li::before{content:counter(st); position:absolute; left:16px; top:16px; width:28px; height:28px; border-radius:50%; background:var(--accent-dark); color:#fff; font-weight:700; display:flex; align-items:center; justify-content:center; font-size:14px;}
+  .away-steps strong{display:block; color:var(--ink); font-size:16px; margin-bottom:2px;}
+  .away-note{text-align:center; margin-top:16px; font-size:13.5px; color:var(--ink-soft);}  /* スマホの折り返し：1文字だけ次の行に残らないように、日本語は文節で折り返す */
   body{word-break:auto-phrase;}
   p,li,td,th,summary,.rl-title,.rl-text,.case-note,.case-point,.bc-note,.ic-text,.ic-name,.bc-name,.kw,.cs-value,.cs-label,.case-title,.btn{text-wrap:pretty;}
   h1,h2,h3{text-wrap:balance;}
@@ -618,7 +625,7 @@
       <div class="achievement-card">
         <div class="achievement-photo">
           <div class="photo-frame">
-            <img src="images/img14.webp" alt="代表理事 矢嶋隼也">
+            <img src="images/img14.webp" alt="代表理事 矢嶋隼也" fetchpriority="high">
             <p class="achievement-caption"><span class="nb">代表理事</span><br><span class="nb">矢嶋　隼也</span></p>
           </div>
         </div>
@@ -888,6 +895,22 @@
   </div>
 </section>
 
+<section class="section section-alt" id="faraway">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">離れて暮らす方へ</span>
+      <h2><span class="nb">小野・三木・西脇のご実家も、</span><span class="nb">立ち会いなしで片付けます</span></h2>
+      <p><span class="nb">大阪・神戸などにお住まいで、</span><span class="nb">なかなか帰省できない方へ。</span><span class="nb">小野市・三木市・西脇市・加東市など</span><span class="nb">北播磨のご実家の片付けを、</span><span class="nb">鍵をお預かりして</span><span class="nb">立ち会いなしで行います。</span></p>
+    </div>
+    <ol class="away-steps">
+      <li><strong>写真でおおよその金額がわかります</strong>LINEでお部屋の写真を送っていただければ、おおよその金額をお伝えします。現地でのお見積り・出張費は無料です。</li>
+      <li><strong>残したい物を先に決めます</strong>通帳や権利書などの貴重品、アルバムや思い出の品など、残したい物を事前にお電話やLINEで確認します。</li>
+      <li><strong>鍵をお預かりして作業します</strong>仕分けから搬出まで行います。見つかった貴重品や残したい品は保管し、ご家族のもとへ発送することもできます。</li>
+      <li><strong>写真・動画でご報告します</strong>作業の様子と片付いたお部屋を、写真や動画でお送りします。</li>
+    </ol>
+    <p class="away-note"><span class="nb">売れる物は買い取って、</span><span class="nb">費用から差し引きます。</span><span class="nb">片付けのあとの草刈りや</span><span class="nb">お墓の掃除もご相談ください。</span></p>
+  </div>
+</section>
 <section class="section" id="services" style="border-top:1px solid var(--line);">
   <div class="wrap">
     <div class="head">
@@ -965,6 +988,9 @@
       <div class="a">三木市・小野市・西脇市・加東市・多可町・宍粟市・市川町・神河町・福崎町まで、北播磨エリア全域に対応しています。明石市・加古川市にも伺います。出張費はエリアを問わず無料です。<br><a href="/akashi-kakogawa/" style="color:var(--accent-dark); font-weight:700;">明石・加古川の方はこちら →</a></div>
     </details>
     <details class="faq-item">
+      <summary>遠方に住んでいて立ち会えません。小野市や三木市の実家でも頼めますか？</summary>
+      <div class="a">はい。小野市・三木市・西脇市・加東市など北播磨のご実家なら、鍵をお預かりして立ち会いなしで片付けます。残したい物は事前にお電話やLINEで確認し、作業の様子は写真や動画でご報告します。見つかった貴重品はご家族のもとへ発送することもできます。</div>
+    </details>    <details class="faq-item">
       <summary>即日対応は可能ですか？</summary>
       <div class="a">スケジュールが空いていれば即日対応も可能です。まずはお電話にてご相談ください。</div>
     </details>
