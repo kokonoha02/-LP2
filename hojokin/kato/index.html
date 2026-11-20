@@ -503,7 +503,11 @@
   .cta-box .cta-buttons{display:flex; flex-wrap:wrap; gap:12px; justify-content:center;}
   .cta-box .btn-outline{border-color:var(--bg-soft); color:var(--bg-soft);}
   @media(max-width:350px){ .hero h1{font-size:19px;} .head h2{font-size:18px;} .eyebrow{font-size:11.5px; padding:5px 12px; letter-spacing:.04em;} .cta-box{padding:28px 16px;} .cta-box h2{font-size:18px;} }
-  /* 印刷（A4）用：画面の表示には影響しない */
+  /* スマホの折り返し：1文字だけ次の行に残らないように、日本語は文節で折り返す */
+  body{word-break:auto-phrase;}
+  p,li,td,th,summary,.rl-title,.rl-text,.case-note,.case-point,.bc-note,.ic-text,.ic-name,.bc-name,.kw,.cs-value,.cs-label,.case-title,.btn{text-wrap:pretty;}
+  h1,h2,h3{text-wrap:balance;}
+  @media(max-width:360px){ p .nb,li .nb,td .nb,th .nb,.rl-text .nb,.notice .nb{white-space:normal;} }  /* 印刷（A4）用：画面の表示には影響しない */
   @media print{
     @page{size:A4; margin:12mm 10mm;}
     html,body{background:#fff !important; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
@@ -810,7 +814,7 @@
 <section class="section" id="contact">
   <div class="wrap">
     <div class="cta-box">
-      <h2><span class="nb">補助金が使えるか、</span><span class="nb">まずはお気軽にご相談ください</span></h2>
+      <h2><span class="nb">補助金が使えるか、</span><span class="nb">まずはお気軽に</span><span class="nb">ご相談ください</span></h2>
       <p><span class="nb">お見積り・出張費は無料です。</span><span class="nb">ご相談は毎日受け付けています。</span></p>
       <div class="cta-buttons">
         <a href="tel:07085816921" onclick="return gtagReportCallConversion(this.href);" class="btn btn-primary">📞 070-8581-6921</a>

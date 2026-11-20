@@ -536,7 +536,11 @@
   .svc-card .kw{font-size:12px; color:var(--accent-dark); font-weight:700; margin-bottom:6px;}
   .svc-card h3{font-size:16px; margin:0 0 8px; color:var(--ink);}
   .svc-card p{font-size:13.5px; line-height:1.8; color:var(--ink-soft); margin:0 0 12px;}
-  .svc-card .more{font-size:13px; font-weight:700; color:var(--accent-dark);}  /* 印刷（A4）用：画面の表示には影響しない */
+  .svc-card .more{font-size:13px; font-weight:700; color:var(--accent-dark);}  /* スマホの折り返し：1文字だけ次の行に残らないように、日本語は文節で折り返す */
+  body{word-break:auto-phrase;}
+  p,li,td,th,summary,.rl-title,.rl-text,.case-note,.case-point,.bc-note,.ic-text,.ic-name,.bc-name,.kw,.cs-value,.cs-label,.case-title,.btn{text-wrap:pretty;}
+  h1,h2,h3{text-wrap:balance;}
+  @media(max-width:360px){ p .nb,li .nb,td .nb,th .nb,.rl-text .nb,.notice .nb{white-space:normal;} }  /* 印刷（A4）用：画面の表示には影響しない */
   @media print{
     @page{size:A4; margin:12mm 10mm;}
     html,body{background:#fff !important; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
@@ -812,7 +816,7 @@
         <tr><th>明石市</th><td><span class="nb">市の許可業者に依頼するか、</span><span class="nb">明石クリーンセンターへ自分で持ち込みます。</span><span class="nb">持ち込みは<strong>電話での事前予約</strong>が必要です。</span><br><span class="nb">粗大ごみの戸別収集は、</span><span class="nb">1回5点までです。</span></td></tr>
         <tr><th>加古川市</th><td><span class="nb">市の許可業者に依頼するか、</span><span class="nb">エコクリーンピアはりま（高砂市）へ</span><span class="nb">自分で持ち込みます。</span><span class="nb">持ち込みには<strong>本人確認書類</strong>が必要です。</span><br><span class="nb">引っ越しなどで一度に出る大量のごみは、</span><span class="nb">粗大ごみの戸別収集の対象外です。</span></td></tr>
       </table>
-      <p class="notice"><span class="nb">ここのはにご依頼いただいた場合、</span><span class="nb">ごみの処分方法は、</span><span class="nb">お見積りの際にご相談のうえ決めます</span><span class="nb">（市の許可業者への依頼、</span><span class="nb">ご自身での持ち込みなど）。</span><br><span class="nb">エアコン・テレビ・冷蔵庫・洗濯機は、</span><span class="nb">家電リサイクル法の対象のため、</span><span class="nb">市では回収されません。</span><br><span class="nb">内容は2026年11月時点の各市の案内をもとにしています。</span><span class="nb">最新の情報は、</span><span class="nb">各市のホームページでご確認ください。</span></p>
+      <p class="notice"><span class="nb">ここのはにご依頼いただいた場合、</span><span class="nb">ごみの処分方法は、</span><span class="nb">お見積りの際にご相談のうえ決めます</span><span class="nb">（市の許可業者への依頼、</span><span class="nb">ご自身での持ち込みなど）。</span><br><span class="nb">エアコン・テレビ・冷蔵庫・洗濯機は、</span><span class="nb">家電リサイクル法の対象のため、</span><span class="nb">市では回収されません。</span><br><span class="nb">内容は2026年11月時点の</span><span class="nb">各市の案内をもとにしています。</span><span class="nb">最新の情報は、</span><span class="nb">各市のホームページでご確認ください。</span></p>
     </div>
   </div>
 </section>
@@ -834,7 +838,7 @@
       </details>
       <details class="faq-item">
         <summary><span><span class="nb">明石に住んでいて、</span><span class="nb">実家が加西にあります。</span></span></summary>
-        <div class="a"><span class="nb">ご実家の片付けも承ります。</span><span class="nb">鍵をお預かりして、</span><span class="nb">立ち会いなしで作業することもできます。</span><br><span class="nb">加西市の空き家なら、</span><span class="nb">補助金が使えるかどうかも</span><span class="nb">あわせてご案内します。</span></div>
+        <div class="a"><span class="nb">ご実家の片付けも承ります。</span><span class="nb">鍵をお預かりして、</span><span class="nb">立ち会いなしで</span><span class="nb">作業することもできます。</span><br><span class="nb">加西市の空き家なら、</span><span class="nb">補助金が使えるかどうかも</span><span class="nb">あわせてご案内します。</span></div>
       </details>
       <details class="faq-item">
         <summary><span><span class="nb">明石市・加古川市の</span><span class="nb">補助金はありますか？</span></span></summary>

@@ -510,7 +510,11 @@
   .hero-points li{position:relative; padding-left:28px; font-size:14.5px; line-height:1.7; color:var(--ink);}
   .hero-points li::before{content:"✓"; position:absolute; left:0; top:0; width:20px; height:20px; border-radius:50%; background:#F0D9A8; color:var(--accent-dark); font-size:12px; font-weight:700; display:flex; align-items:center; justify-content:center; margin-top:2px;}
   .hero-ctas-sub{margin-bottom:16px;}
-  /* 印刷（A4）用：画面の表示には影響しない */
+  /* スマホの折り返し：1文字だけ次の行に残らないように、日本語は文節で折り返す */
+  body{word-break:auto-phrase;}
+  p,li,td,th,summary,.rl-title,.rl-text,.case-note,.case-point,.bc-note,.ic-text,.ic-name,.bc-name,.kw,.cs-value,.cs-label,.case-title,.btn{text-wrap:pretty;}
+  h1,h2,h3{text-wrap:balance;}
+  @media(max-width:360px){ p .nb,li .nb,td .nb,th .nb,.rl-text .nb,.notice .nb{white-space:normal;} }  /* 印刷（A4）用：画面の表示には影響しない */
   @media print{
     @page{size:A4; margin:12mm 10mm;}
     html,body{background:#fff !important; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
@@ -590,7 +594,7 @@
         <span class="nb">墓石の掃除、草刈り、</span><span class="nb">除草剤の散布、</span><span class="nb">植木の手入れまで。</span><br><span class="nb">作業後は写真でご報告するので、</span><span class="nb">遠方の方も安心です。</span>
       </p>
       <ul class="hero-points">
-        <li><span class="nb">立ち会いは不要。</span><span class="nb">墓地の場所を教えていただければ伺います</span></li>
+        <li><span class="nb">立ち会いは不要。</span><span class="nb">墓地の場所を教えていただければ</span><span class="nb">伺います</span></li>
         <li><span class="nb">作業前・作業後の写真を、</span><span class="nb">LINEでお送りします</span></li>
         <li><span class="nb">お盆・お彼岸前の1回だけでも、</span><span class="nb">年間プランでも</span></li>
       </ul>

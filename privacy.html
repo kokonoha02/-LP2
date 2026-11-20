@@ -50,7 +50,11 @@
   }
   .back{display:inline-block; margin-top:40px; color:var(--accent-dark);}
   .date{margin-top:32px; color:var(--ink-soft); font-size:13px;}
-  /* 印刷（A4）用：画面の表示には影響しない */
+  /* スマホの折り返し：1文字だけ次の行に残らないように、日本語は文節で折り返す */
+  body{word-break:auto-phrase;}
+  p,li,td,th,summary,.rl-title,.rl-text,.case-note,.case-point,.bc-note,.ic-text,.ic-name,.bc-name,.kw,.cs-value,.cs-label,.case-title,.btn{text-wrap:pretty;}
+  h1,h2,h3{text-wrap:balance;}
+  @media(max-width:360px){ p .nb,li .nb,td .nb,th .nb,.rl-text .nb,.notice .nb{white-space:normal;} }  /* 印刷（A4）用：画面の表示には影響しない */
   @media print{
     @page{size:A4; margin:12mm 10mm;}
     html,body{background:#fff !important; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
